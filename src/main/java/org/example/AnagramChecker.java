@@ -5,20 +5,20 @@ import java.util.Objects;
 
 public class AnagramChecker {
 
-    public static boolean check(String firstWord, String secondWord) {
-        if (firstWord == null || secondWord == null) return false;
+    public static boolean check(String firstStr, String secondStr) {
+        if (firstStr == null || secondStr == null) return false;
 
-        firstWord = firstWord.toLowerCase();
-        secondWord = secondWord.toLowerCase();
+        firstStr = firstStr.toLowerCase();
+        secondStr = secondStr.toLowerCase();
 
-        if (Objects.equals(firstWord, secondWord)) return false;
+        if (Objects.equals(firstStr, secondStr)) return false;
 
-        var charArrOfFirstWord = firstWord.toCharArray();
-        var charArrOfFSecondWord = secondWord.toCharArray();
+        var charArrOfFirstStr = firstStr.toCharArray();
+        var charArrOfFSecondStr = secondStr.toCharArray();
 
-        Arrays.sort(charArrOfFirstWord);
-        Arrays.sort(charArrOfFSecondWord);
+        Arrays.sort(charArrOfFirstStr);
+        Arrays.sort(charArrOfFSecondStr);
 
-        return Arrays.equals(charArrOfFirstWord, charArrOfFSecondWord);
+        return Arrays.equals(charArrOfFirstStr, charArrOfFSecondStr);
     }
 }
