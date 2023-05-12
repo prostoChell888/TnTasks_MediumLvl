@@ -22,12 +22,4 @@ public class BinarySearch {
 
         return -1;
     }
-
-
-    public static void main(String[] args) {
-
-        List<Integer> list = List.of(10, 20, 30);
-
-        System.out.println(search(list, 20));
-    }
 }
