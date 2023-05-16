@@ -4,7 +4,8 @@ package org.example;
 /**
  * This class containing a method that finds the first unique character in a string
  */
-public class FirstUniqueElFinder {
+
+public class FirstUniqueCharacter {
 
 
     /**
