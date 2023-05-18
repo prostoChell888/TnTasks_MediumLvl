@@ -27,7 +27,7 @@ public class BreadthFirstTraversal {
             list.add(node.getValue());
 
             if (root.getLeft() != null) queue.offer(node.getLeft());
-            if (root.getLeft() != null) queue.offer(root.getRight());
+            if (root.getRight() != null) queue.offer(root.getRight());
 
         }
         return list;
