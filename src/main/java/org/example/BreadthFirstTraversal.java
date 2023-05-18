@@ -20,16 +20,16 @@ public class BreadthFirstTraversal {
         Queue<Node> queue = new LinkedList<>();
         List<Integer> list = new LinkedList<>();
 
-        queue.offer(root);
+        if (root != null) queue.offer(root);
 
         while (!queue.isEmpty()) {
             Node node = queue.poll();
             list.add(node.getValue());
 
-            if (root.getLeft() != null) queue.offer(node.getLeft());
-            if (root.getRight() != null) queue.offer(root.getRight());
-
+            if (node.getLeft() != null) queue.offer(node.getLeft());
+            if (node.getRight() != null) queue.offer(node.getRight());
         }
+
         return list;
     }
 }
