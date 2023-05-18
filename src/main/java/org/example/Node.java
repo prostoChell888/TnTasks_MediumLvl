@@ -8,4 +8,16 @@ class Node {
     public Node(int value) {
         this.value = value;
     }
+
+    public Node getLeft() {
+        return left;
+    }
+
+    public Node getRight() {
+        return right;
+    }
+
+    public int getValue() {
+        return value;
+    }
 }
