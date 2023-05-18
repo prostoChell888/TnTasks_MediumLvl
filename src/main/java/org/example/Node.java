@@ -1,5 +1,9 @@
 package org.example;
 
+
+/**
+ * Tree Node
+ */
 class Node {
     private Node left;
     private Node right;
