@@ -28,7 +28,7 @@ class BinarySearchTest {
             "100, 9",
             "101, -1"
     })
-    void search_FindElInIntArr(int searchingNum, int expectedPos) {
+    void searchFindElInIntArr(int searchingNum, int expectedPos) {
         List<Integer> list = List.of(10, 20, 30, 40, 50, 60, 70, 80, 90, 100);
 
         var res = BinarySearch.search(list, searchingNum);
@@ -44,7 +44,7 @@ class BinarySearchTest {
             "date, 3",
             "fig, 4",
             "grape, 5"})
-    void search_FindElInStrArr(String searchingStr, int expectedPos) {
+    void searchFindElInStrArr(String searchingStr, int expectedPos) {
         List<String> list = List.of("apple", "banana", "cherry", "date", "fig", "grape");
 
         var res = BinarySearch.search(list, searchingStr);
@@ -53,7 +53,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void search_FindElInDateArr() {
+    void searchFindElInDateArr() {
         ChronoLocalDate d1 = LocalDate.of(2021, Calendar.NOVEMBER, 1);
         ChronoLocalDate d2 =  LocalDate.of(2022, Calendar.JUNE, 10);
         ChronoLocalDate d3 =  LocalDate.of(2023, Calendar.APRIL, 15);
@@ -68,7 +68,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void search_FindElInDoubleArr() {
+    void searchFindElInDoubleArr() {
         Double d1 = 1.2;
         Double d2 = 3.6;
         Double d3 = 5.4;
@@ -83,7 +83,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void search_FindElInEmptyArr() {
+    void searchFindElInEmptyArr() {
         List<Double> doubles = new ArrayList<>();
 
         var res = BinarySearch.search(doubles, 5.4);
