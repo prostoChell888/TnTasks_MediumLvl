@@ -1,5 +1,6 @@
 package org.example;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -8,17 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FirstUniqueCharacterTest {
 
-    @Test
-    void find_StrWithUniqueEl_FirstUniqueEl() {
-
-    }
+    private static final String END_OF_STR = "\0";
 
     @ParameterizedTest
     @CsvSource({
             "aabbcde, c",
-            "abcabc, '\0'",
+            "abcabc, '" + END_OF_STR + "'",
             "abcdefg, a",
-            "aabbccdd, '\0'",
+            "aabbccdd, '" + END_OF_STR + "'",
             "hello, h"
     })
     public void find_StrWithUniqueEl_FirstUniqueElOrEndOfStr(String input, char expected) {
@@ -34,6 +32,6 @@ class FirstUniqueCharacterTest {
 
         char result = FirstUniqueCharacter.find(emptyStr);
 
-        assertEquals('\0', result);
+        Assertions.assertEquals(END_OF_STR, result);
     }
 }
