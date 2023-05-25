@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PreorderTest {
 
     @Test
-    void getListFomTree_Tree_List() {
+    void getListFomTreeGivenTreeReturnList() {
         // Create the tree
         Node root = new Node(1);
         root.setLeft(new Node(2));
@@ -25,7 +25,7 @@ class PreorderTest {
     }
 
     @Test
-    void getListFomTree_NullTree_EmptyList() {
+    void getListFomTreeGivenNullTreeReturnEmptyList() {
         Node root = null;
         List<Integer> expectedList = new LinkedList<>();
 

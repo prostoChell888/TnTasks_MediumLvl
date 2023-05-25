@@ -27,6 +27,7 @@ public class Preorder {
     }
 
 
+
     private static void preorderTraversal(List<Integer> listOfInt, Node node) {
         if (node == null) return;
         listOfInt.add(node.getValue());
