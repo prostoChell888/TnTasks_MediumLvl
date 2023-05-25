@@ -19,7 +19,7 @@ class FirstUniqueCharacterTest {
             "aabbccdd, '" + END_OF_STR + "'",
             "hello, h"
     })
-    void find_StrWithUniqueEl_FirstUniqueElOrEndOfStr(String input, char expected) {
+    void findGivenStrWithUniqueElReturnFirstUniqueElOrEndOfStr(String input, char expected) {
 
         char actual = FirstUniqueCharacter.find(input);
 
@@ -27,7 +27,7 @@ class FirstUniqueCharacterTest {
     }
 
     @Test
-    void find_EmptyStr_FirstUniqueEl_EndOfStr() {
+    void findGivenEmptyStrReturnEndOfStr() {
         String emptyStr = "";
 
         char result = FirstUniqueCharacter.find(emptyStr);
