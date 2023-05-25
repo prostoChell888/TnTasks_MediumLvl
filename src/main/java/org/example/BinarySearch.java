@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -10,6 +8,15 @@ import java.util.List;
  * This class provides a method for sorting an array
  */
 public class BinarySearch {
+
+    private static final int SIFT_OF_POS = 1;
+    private static final int START_POS = 0;
+
+    private static final int NOT_FOUND = -1;
+
+    private static final int EL_ARE_EQUALS = 0;
+
+    private static final int SHIFT_NEED_TO_TWO_DIVISION = 1;
 
 
     /**
@@ -21,19 +28,23 @@ public class BinarySearch {
      * @param <T> a class that implements the Comparable interface
      */
     public static <T extends Comparable<T>> int search(List<T> list, T target) {
-        int leftOrder = 0;
-        int rightOrder = list.size() - 1;
+        int leftOrder = START_POS;
+        int rightOrder = list.size() - SIFT_OF_POS;
 
         while (leftOrder <= rightOrder) {
-            int mid = (leftOrder + rightOrder) >> 1;
-
-            int resOfComp = target.compareTo(list.get(mid));
-
-            if (resOfComp == 0) return mid;
-            else if (resOfComp > 0) leftOrder = mid + 1;
-            else rightOrder = mid - 1;
+            int mid = (leftOrder + rightOrder) >> SHIFT_NEED_TO_TWO_DIVISION;
+            int resOfComparison = target.compareTo(list.get(mid));
+            if (resOfComparison == EL_ARE_EQUALS) {
+                return mid;
+            }
+            else if (resOfComparison > 0) {
+                leftOrder = mid + SIFT_OF_POS;
+            }
+            else {
+                rightOrder = mid - SIFT_OF_POS;
+            }
         }
 
-        return -1;
+        return NOT_FOUND;
     }
 }

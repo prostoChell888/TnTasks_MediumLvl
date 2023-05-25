@@ -4,9 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,7 +28,7 @@ class BinarySearchTest {
             "100, 9",
             "101, -1"
     })
-    public void search_FindElInIntArr(int searchingNum, int expectedPos) {
+    void search_FindElInIntArr(int searchingNum, int expectedPos) {
         List<Integer> list = List.of(10, 20, 30, 40, 50, 60, 70, 80, 90, 100);
 
         var res = BinarySearch.search(list, searchingNum);
@@ -43,7 +44,7 @@ class BinarySearchTest {
             "date, 3",
             "fig, 4",
             "grape, 5"})
-    public void search_FindElInStrArr(String searchingStr, int expectedPos) {
+    void search_FindElInStrArr(String searchingStr, int expectedPos) {
         List<String> list = List.of("apple", "banana", "cherry", "date", "fig", "grape");
 
         var res = BinarySearch.search(list, searchingStr);
@@ -53,10 +54,10 @@ class BinarySearchTest {
 
     @Test
     void search_FindElInDateArr() {
-        Date d1 = new Date(2021, Calendar.NOVEMBER, 1);
-        Date d2 = new Date(2022, Calendar.JUNE, 10);
-        Date d3 = new Date(2023, Calendar.APRIL, 15);
-        List<Date> dates = new ArrayList<>();
+        ChronoLocalDate d1 = LocalDate.of(2021, Calendar.NOVEMBER, 1);
+        ChronoLocalDate d2 =  LocalDate.of(2022, Calendar.JUNE, 10);
+        ChronoLocalDate d3 =  LocalDate.of(2023, Calendar.APRIL, 15);
+        List<ChronoLocalDate> dates = new ArrayList<>();
         dates.add(d1);
         dates.add(d2);
         dates.add(d3);
