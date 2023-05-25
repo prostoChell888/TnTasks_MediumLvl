@@ -22,7 +22,7 @@ public class DuplicateItemsGetter {
             countMap.merge(el, 1, Integer::sum);
         }
 
-        List<T> listOfDuplicate = new ArrayList<T>();
+        List<T> listOfDuplicate = new ArrayList<>();
         for (var entry : countMap.entrySet()) {
             if (entry.getValue() > 1) {
                 listOfDuplicate.add(entry.getKey());
