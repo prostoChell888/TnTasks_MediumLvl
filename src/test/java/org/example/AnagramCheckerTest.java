@@ -18,7 +18,7 @@ class AnagramCheckerTest {
             "1234,4321"
     }
     )
-    void check_StringsAreAnagrams_True(String firstStr, String secondStr) {
+    void checkGivenStringsAreAnagramsReturnTrue(String firstStr, String secondStr) {
 
         var res = AnagramChecker.check(firstStr, secondStr);
 
@@ -37,7 +37,7 @@ class AnagramCheckerTest {
             ","
     }
     )
-    void check_StringsAreNotAnagrams_False(String firstStr, String secondStr) {
+    void checkGivenStringsAreNotAnagramsReturnFalse(String firstStr, String secondStr) {
 
         var res = AnagramChecker.check(firstStr, secondStr);
 
@@ -45,7 +45,7 @@ class AnagramCheckerTest {
     }
 
     @Test
-    void check_BlankStringsAreNotAnagrams_False() {
+    void checkGivenBlankStringsAreNotAnagramsReturnFalse() {
         String firstStr = "";
         String secondStr ="";
 
