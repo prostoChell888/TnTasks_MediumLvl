@@ -16,7 +16,7 @@ class DuplicateItemsGetterTest {
 
     @ParameterizedTest
     @MethodSource("testCases")
-    <T> void getDuplicates_List_ListWithDuplicates(List<T> input, List<T> expectedOutput) {
+    <T> void getDuplicatesGivenListReturnListWithDuplicates(List<T> input, List<T> expectedOutput) {
         List<T> actualOutput = DuplicateItemsGetter.getDuplicates(input);
         assertEquals(expectedOutput, actualOutput);
     }
@@ -33,7 +33,7 @@ class DuplicateItemsGetterTest {
 
 
     @Test
-    <T> void getDuplicates_EmptyList_EmptyList() {
+    <T> void getDuplicatesGivenEmptyListReturnEmptyList() {
         List<T> input = new ArrayList<>();
         List<T> expectedOutput = new ArrayList<>();
         List<T> actualOutput = DuplicateItemsGetter.getDuplicates(input);
