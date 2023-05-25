@@ -8,6 +8,8 @@ package org.example;
 public class FirstUniqueCharacter {
 
 
+    private static final char NOT_FOUND = '\0';
+
     /**
      * @param str string
      * @return the first unique character, if there is one, else '\0'
@@ -25,6 +27,6 @@ public class FirstUniqueCharacter {
             if (isUnique) return arr[i];
         }
 
-        return '\0';
+        return NOT_FOUND;
     }
 }
