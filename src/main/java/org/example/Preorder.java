@@ -1,8 +1,9 @@
 package org.example;
 
-
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
+
 
 
 /**
@@ -12,27 +13,28 @@ public class Preorder {
 
     /**
      * Implements a direct (preorder) traversal of the tree in depth
+     *
      * @param root node
      * @return list with tree int values
      */
     public static List<Integer> getListFomTree(Node root) {
-        List<Integer> listOfInt = new LinkedList<>();
-        if (root == null) return listOfInt;
+        if (root == null) return new LinkedList<>();
 
-        listOfInt.add(root.getValue());
-        preorderTraversal(listOfInt, root.getLeft());
-        preorderTraversal(listOfInt, root.getRight());
+        Deque<Node> stack = new LinkedList<>();
+        stack.push(root);
 
-        return listOfInt;
-    }
+        List<Integer> res = new LinkedList<>();
+        while (!stack.isEmpty()) {
+            Node node = stack.pop();
+            res.add(node.getValue());
 
+            if (node.getRight() != null)
+                stack.push(node.getRight());
 
+            if (node.getLeft() != null)
+                stack.push(node.getLeft());
+        }
 
-    private static void preorderTraversal(List<Integer> listOfInt, Node node) {
-        if (node == null) return;
-        listOfInt.add(node.getValue());
-
-        preorderTraversal(listOfInt, node.getLeft());
-        preorderTraversal(listOfInt, node.getRight());
+        return res;
     }
 }
