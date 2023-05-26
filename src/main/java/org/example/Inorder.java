@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,22 +12,24 @@ public class Inorder {
      * @return list with tree int values
      */
     public static List<Integer> getListFomTree(Node root) {
-        List<Integer> listOfInt = new LinkedList<>();
-        if (root == null) return listOfInt;
+        if (root == null) return new LinkedList<>();
 
-        preorderTraversal(listOfInt, root.getLeft());
-        listOfInt.add(root.getValue());
-        preorderTraversal(listOfInt, root.getRight());
+        Deque<Node> stack = new LinkedList<>();
+        Node current = root;
 
-        return listOfInt;
-    }
+        List<Integer> res = new LinkedList<>();
+        while (current != null || !stack.isEmpty()) {
+            while (current != null) {
+                stack.push(current);
+                current = current.getLeft();
+            }
 
+            current = stack.pop();
+            res.add(current.getValue());
 
-    private static void preorderTraversal(List<Integer> listOfInt, Node node) {
-        if (node == null) return;
+            current = current.getRight();
+        }
 
-        preorderTraversal(listOfInt, node.getLeft());
-        listOfInt.add(node.getValue());
-        preorderTraversal(listOfInt, node.getRight());
+        return res;
     }
 }
