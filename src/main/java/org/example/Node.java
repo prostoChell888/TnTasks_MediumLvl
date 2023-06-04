@@ -1,11 +1,10 @@
 package org.example;
 
-class Node {
-    public Node(Node next, int value) {
-        this.next = next;
-        this.value = value;
-    }
 
+/**
+ * Node of link list
+ */
+class Node {
     public Node next;
     public int value;
 }
