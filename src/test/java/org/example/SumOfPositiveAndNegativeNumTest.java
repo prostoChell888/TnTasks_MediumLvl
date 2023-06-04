@@ -1,5 +1,6 @@
 package org.example;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -15,6 +16,7 @@ class SumOfPositiveAndNegativeNumTest {
 
     @ParameterizedTest
     @MethodSource("testData")
+    @DisplayName("calculate correct sum")
     void shouldCalculateCorrectSum(List<Integer> input, Map<String, Integer> expected) {
 
         Map<String, Integer> result = SumOfPositiveAndNegativeNums.sum(input);
