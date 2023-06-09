@@ -3,6 +3,10 @@ package org.example;
 import java.util.HashSet;
 import java.util.Set;
 
+
+/**
+ * Сlass for checking the matrix for a given condition
+ */
 public class MaterChecker {
     private static final char DOT_CHAR = '.';
     private static final char ONE_CHAR = '1';
@@ -11,6 +15,11 @@ public class MaterChecker {
     static {for (Character ch = ONE_CHAR; ch <= NINE_CHAR; ch++) allDigits.add(ch);}
 
 
+    /**
+     * checks that the matrix contains one of the digits from 1 to 9 in each row and column
+     * @param matr matrix with values
+     * @return true if the matrix satisfies the condition otherwise false
+     */
     public static boolean isValidMater(char[][] matr) {
 
         if (matr.length == 0) throw new SizeOfMaterException("Матрица пуста");
@@ -28,6 +37,13 @@ public class MaterChecker {
         return true;
     }
 
+
+    /**
+     * checks that the column contains all the digits from 1 to 9 without repetitions or a dot
+     * @param mater matrix with values
+     * @param numOfCol number of the column to be checked
+     * @return true if the column satisfies the condition otherwise false
+     */
     private static boolean isValidCol(char[][] mater, int numOfCol) {
         Set<Character> setOfDigitInCol = new HashSet<>();
 
@@ -40,6 +56,13 @@ public class MaterChecker {
         return setOfDigitInCol.containsAll(allDigits);
     }
 
+
+    /**
+     * checks that the row contains all the digits from 1 to 9 without repetitions or a dot
+     * @param mater matrix with values
+     * @param numOfRow number of the column to be checked
+     * @return true if the row satisfies the condition otherwise false
+     */
     private static boolean isValidRow(char[][] mater, int numOfRow) {
         Set<Character> setOfDigitInCol = new HashSet<>();
 
@@ -52,6 +75,11 @@ public class MaterChecker {
         return setOfDigitInCol.containsAll(allDigits);
     }
 
+    /**
+     * checks whether a given character is a number or a dot
+     * @param el the element being checked
+     * @return true if the element satisfies the condition otherwise false
+     */
     private static boolean isValidEl(char el) {
         return el == DOT_CHAR || Character.isDigit(el);
     }
