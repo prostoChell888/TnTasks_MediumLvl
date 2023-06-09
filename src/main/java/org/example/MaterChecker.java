@@ -12,8 +12,9 @@ public class MaterChecker {
 
 
     public static boolean isValidMater(char[][] matr) {
+
+        if (matr.length == 0) throw new SizeOfMaterException("Матрица пуста");
         var countOfElInCol = matr[0].length;
-        if (countOfElInCol == 0) throw new SizeOfMaterException("Матрица пуста");
 
         for (int numOfRow = 0; numOfRow < matr.length; numOfRow++) {
             if (countOfElInCol != matr[numOfRow].length) throw new SizeOfMaterException("Строки матрицы разной длинны");
