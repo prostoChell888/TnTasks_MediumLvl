@@ -4,6 +4,8 @@ on:
         push:
                 paths:
                         - 'src/**'
+                        - 'pom.xml'
+                        - '.github/workflows/app.yml'
 
 jobs:
 
