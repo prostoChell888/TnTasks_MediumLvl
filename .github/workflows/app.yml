@@ -21,6 +21,6 @@ jobs:
                                   cache: maven
 
                         - name: Maven package scrapper
-                          run: mvn package -pl app -am
+                          run: mvn package -pl TnTasks_MediumLvl -am
 
 
