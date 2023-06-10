@@ -1,11 +1,10 @@
 package org.example;
 
+import org.example.exeptions.SizeOfMaterException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
- class MaterCheckerTest {
+class MaterCheckerTest {
 
      @Test
      void testValidMatrix() {

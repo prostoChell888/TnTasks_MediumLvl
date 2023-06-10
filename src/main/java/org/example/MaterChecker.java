@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.exeptions.SizeOfMaterException;
+
 import java.util.HashSet;
 import java.util.Set;
 
