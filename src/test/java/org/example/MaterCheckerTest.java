@@ -2,11 +2,13 @@ package org.example;
 
 import org.example.exeptions.SizeOfMaterException;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class MaterCheckerTest {
 
      @Test
+     @DisplayName("Правильная матрица")
      void testValidMatrix() {
          char[][] matrix = {
                  {'5', '3', '4', '6', '7', '8', '9', '1', '2'},
@@ -24,7 +26,8 @@ class MaterCheckerTest {
      }
 
     @Test
-     void testNotValidMatrix() {
+    @DisplayName("Не правильная матрица не содержит всех цифр в столбцах и строках")
+    void testNotValidMatrix() {
         char[][] matrix = {
                 {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
                 {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
@@ -41,7 +44,8 @@ class MaterCheckerTest {
     }
 
     @Test
-     void testInvalidMatrixDuplicateDigitInRow() {
+    @DisplayName("Не правильная матрица дублируется цифра в строке")
+    void testInvalidMatrixDuplicateDigitInRow() {
         char[][] matrix = {
                 {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
                 {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
@@ -58,6 +62,7 @@ class MaterCheckerTest {
     }
 
     @Test
+    @DisplayName("Не правильная матрица дублируется цифра в строке")
     void testInvalidMatrixDuplicateDigitInColumn() {
         char[][] matrix = {
                 {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
@@ -75,6 +80,7 @@ class MaterCheckerTest {
     }
 
     @Test
+    @DisplayName("Не правильная матрица, недопустимый символ")
     void testInvalidMatrixInvalidCharacter() {
         char[][] matrix = {
                 {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
@@ -92,6 +98,7 @@ class MaterCheckerTest {
     }
 
     @Test
+    @DisplayName("Не правильная матрица, не правильная длинна строки")
     void testInvalidMatrixInconsistentRowLengths() {
         char[][] matrix = {
                 {'1', '2', '3', '4', '5', '6', '7', '8', '9', '.'},
@@ -110,6 +117,7 @@ class MaterCheckerTest {
     }
 
     @Test
+    @DisplayName("Не правильная матрица, она пустая")
     void testInvalidMatrixEmptyMatrix() {
         char[][] matrix = {};
 
