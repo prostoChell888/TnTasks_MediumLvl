@@ -8,7 +8,7 @@ import java.util.*;
 public class BreadthFirstTraversal {
 
     /**
-     * Implements a breadth-first traversal  of the tree in depth
+     * Implements a breadth-first traversal  of the tree in widt
      *
      * @param root node
      * @return list with tree int values
