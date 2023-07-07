@@ -18,15 +18,15 @@ public class FirstUniqueCharacter {
      * @return the first unique character, if there is one, else '\0'
      */
     public static char find(String str) {
-        Map<Character, Integer> charCounts = new HashMap<>();
+        Map<Character, Integer> countsOfChar = new HashMap<>();
         char[] charArray = str.toCharArray();
 
         for (char ch : charArray) {
-            charCounts.put(ch, charCounts.getOrDefault(ch, 0) + 1);
+            countsOfChar.put(ch, countsOfChar.getOrDefault(ch, 0) + 1);
         }
 
         for (char ch : charArray) {
-            if (charCounts.get(ch) == 1) {
+            if (countsOfChar.get(ch) == 1) {
                 return ch;
             }
         }
