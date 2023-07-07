@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -16,11 +17,12 @@ public class BreadthFirstTraversal {
      * @return list with tree int values
      */
     public static List<Integer> getListFomTree(Node root) {
+        if (root == null) return new ArrayList<>();
 
         Queue<Node> queue = new LinkedList<>();
         List<Integer> list = new LinkedList<>();
 
-        if (root != null) queue.offer(root);
+        queue.offer(root);
 
         while (!queue.isEmpty()) {
             Node node = queue.poll();
