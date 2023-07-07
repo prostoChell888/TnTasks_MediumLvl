@@ -1,9 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * This class contain breadth-first traversal method
@@ -19,8 +16,8 @@ public class BreadthFirstTraversal {
     public static List<Integer> getListFomTree(Node root) {
         if (root == null) return new ArrayList<>();
 
-        Queue<Node> queue = new LinkedList<>();
-        List<Integer> list = new LinkedList<>();
+        Queue<Node> queue = new ArrayDeque<>();
+        List<Integer> list = new ArrayList<>();
 
         queue.offer(root);
 
