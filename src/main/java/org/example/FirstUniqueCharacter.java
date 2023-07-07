@@ -1,6 +1,9 @@
 package org.example;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * This class containing a method that finds the first unique character in a string
  */
@@ -15,16 +18,17 @@ public class FirstUniqueCharacter {
      * @return the first unique character, if there is one, else '\0'
      */
     public static char find(String str) {
-        var arr = str.toCharArray();
-        for (int i = 0; i < arr.length; i++) {
-            boolean isUnique = true;
-            for (int j = 0; j < arr.length; j++) {
-                if (arr[i] == arr[j] && i != j ) {
-                    isUnique = false;
-                    break;
-                }
+        Map<Character, Integer> charCounts = new HashMap<>();
+        char[] charArray = str.toCharArray();
+
+        for (char ch : charArray) {
+            charCounts.put(ch, charCounts.getOrDefault(ch, 0) + 1);
+        }
+
+        for (char ch : charArray) {
+            if (charCounts.get(ch) == 1) {
+                return ch;
             }
-            if (isUnique) return arr[i];
         }
 
         return NOT_FOUND;
