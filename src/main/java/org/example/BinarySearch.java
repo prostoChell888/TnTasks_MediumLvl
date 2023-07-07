@@ -34,10 +34,10 @@ public class BinarySearch {
         while (leftOrder <= rightOrder) {
             int mid = (leftOrder + rightOrder) >> 1;
             int resOfComparison = target.compareTo(list.get(mid));
-            if (resOfComparison == 0) {
+            if (isThisElEqualsSerching(resOfComparison)) {
                 return mid;
             }
-            else if (resOfComparison > 0) {
+            else if (isThisElBiggerThenSerching(resOfComparison)) {
                 leftOrder = mid + 1;
             }
             else {
@@ -46,5 +46,13 @@ public class BinarySearch {
         }
 
         return -1;
+    }
+
+    private static boolean isThisElBiggerThenSerching(int resOfComparison) {
+        return resOfComparison > 0;
+    }
+
+    private static boolean isThisElEqualsSerching(int resOfComparison) {
+        return resOfComparison == 0;
     }
 }
