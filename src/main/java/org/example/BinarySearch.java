@@ -9,14 +9,14 @@ import java.util.List;
  */
 public class BinarySearch {
 
-    private static final int SIFT_OF_POS = 1;
-    private static final int START_POS = 0;
 
-    private static final int NOT_FOUND = -1;
 
-    private static final int EL_ARE_EQUALS = 0;
 
-    private static final int SHIFT_NEED_TO_TWO_DIVISION = 1;
+
+
+
+
+
 
 
     /**
@@ -28,23 +28,23 @@ public class BinarySearch {
      * @param <T> a class that implements the Comparable interface
      */
     public static <T extends Comparable<T>> int search(List<T> list, T target) {
-        int leftOrder = START_POS;
-        int rightOrder = list.size() - SIFT_OF_POS;
+        int leftOrder = 0;
+        int rightOrder = list.size() - 1;
 
         while (leftOrder <= rightOrder) {
-            int mid = (leftOrder + rightOrder) >> SHIFT_NEED_TO_TWO_DIVISION;
+            int mid = (leftOrder + rightOrder) >> 1;
             int resOfComparison = target.compareTo(list.get(mid));
-            if (resOfComparison == EL_ARE_EQUALS) {
+            if (resOfComparison == 0) {
                 return mid;
             }
             else if (resOfComparison > 0) {
-                leftOrder = mid + SIFT_OF_POS;
+                leftOrder = mid + 1;
             }
             else {
-                rightOrder = mid - SIFT_OF_POS;
+                rightOrder = mid - 1;
             }
         }
 
-        return NOT_FOUND;
+        return -1;
     }
 }
