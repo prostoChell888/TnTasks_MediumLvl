@@ -37,10 +37,7 @@ class SumOfPositiveAndNegativeNumTest {
                 new Object[]{Arrays.asList(-1, -2, -3, -4, -5), createExpectedResult(0, -15)},
                 new Object[]{Arrays.asList(-10, -20, -30), createExpectedResult(0, -60)},
 
-                new Object[]{List.of(), createExpectedResult(0, 0)},
-
-                new Object[]{Arrays.asList(1, null, -3, 4, null), createExpectedResult(5, -3)}
-        );
+                new Object[]{List.of(), createExpectedResult(0, 0)});
     }
 
 

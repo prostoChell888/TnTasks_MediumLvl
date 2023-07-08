@@ -1,26 +1,32 @@
 package org.example;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SumOfPositiveAndNegativeNums {
 
+    private static final String POSITIVE = "positive";
+    private static final String NEGATIVE = "negative";
+
     /**
-     *  find sum of positive and negative integer nums
+     * find sum of positive and negative integer nums
+     *
      * @param list with nonzero integers
      * @return Map with sum of positive numbers by key "positive"
-     *              sum of negative numbers by key "negative"
+     * sum of negative numbers by key "negative"
      */
     public static Map<String, Integer> sum(List<Integer> list) {
-        Map<String, Integer> coordinates = new HashMap<>();
+        return list.stream()
+                .map(number -> Map.of(determineSignOfNum(number), number))
+                .reduce(new HashMap<>(Map.of(POSITIVE, 0, NEGATIVE, 0)),
+                        (accumMap, map) -> {
+                            Integer number = Optional.ofNullable(map.get(POSITIVE)).orElse(map.get(NEGATIVE));
+                            accumMap.merge(determineSignOfNum(number), map.get(determineSignOfNum(number)), Integer::sum);
+                            return accumMap;
+                        }
+                );
+    }
 
-        var sumOfPositive = list.stream().filter(x -> x != null && x > 0).mapToInt(x -> x).sum();
-        var sumOfNegative = list.stream().filter(x -> x != null && x < 0).mapToInt(x -> x).sum();
-
-        coordinates.put("positive", sumOfPositive);
-        coordinates.put("negative", sumOfNegative);
-
-        return coordinates;
+    private static String determineSignOfNum(Integer number) {
+        return (number > 0) ? POSITIVE : NEGATIVE;
     }
 }
