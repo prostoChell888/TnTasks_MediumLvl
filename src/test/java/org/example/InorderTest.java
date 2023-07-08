@@ -11,7 +11,16 @@ class InorderTest {
 
     @Test
     void getListFomTreeGivenTreeReturnList() {
-        // Create the tree
+        /*
+
+            1
+           / \
+          2   3
+         / \
+        4   5
+ */
+
+
         Node root = new Node(1);
         root.setLeft(new Node(2));
         root.setRight(new Node(3));

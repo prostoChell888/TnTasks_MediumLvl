@@ -1,35 +1,34 @@
 package org.example;
 
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Inorder {
-
     /**
      * Implements a inorder traversal of the tree in depth
+     *
      * @param root node
      * @return list with tree int values
      */
     public static List<Integer> getListFomTree(Node root) {
-        if (root == null) return new LinkedList<>();
+        List<Integer> resList = new ArrayList<>();
+        if (root == null) return resList;
 
-        Deque<Node> stack = new LinkedList<>();
-        Node current = root;
+        Deque<Node> nodeStack = new ArrayDeque<>();
+        Deque<Integer> valueStack = new ArrayDeque<>();
+        nodeStack.add(root);
 
-        List<Integer> res = new LinkedList<>();
-        while (current != null || !stack.isEmpty()) {
-            while (current != null) {
-                stack.push(current);
-                current = current.getLeft();
-            }
+        Node currentNode;
+        while (!nodeStack.isEmpty()) {
+            currentNode = nodeStack.pollFirst();
+            valueStack.addFirst(currentNode.getValue());
 
-            current = stack.pop();
-            res.add(current.getValue());
+            if (currentNode.getLeft() == null) resList.add(valueStack.pollFirst());
+            if (currentNode.getRight() == null && !valueStack.isEmpty()) resList.add(valueStack.pollFirst());
 
-            current = current.getRight();
+            if (currentNode.getRight() != null) nodeStack.addFirst(currentNode.getRight());
+            if (currentNode.getLeft() != null) nodeStack.addFirst(currentNode.getLeft());
         }
 
-        return res;
+        return resList;
     }
 }
